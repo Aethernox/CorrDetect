@@ -1,0 +1,111 @@
+# ==============================================================================
+# CorrDetect-MATLAB: Production .gitignore
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. MATLAB Cache, Autosave, & Recovery Files
+# ------------------------------------------------------------------------------
+*.asv
+*.m~
+*.bak
+*~
+*.mlx.autosave
+*.slprj/
+*.matlab
+matlab.log
+matlab_crash_dump.*
+
+# Compiled MEX binaries (platform-specific)
+*.mex*
+*.mexa64
+*.mexw64
+*.mexmaci64
+*.mexmaca64
+
+# Code generation & build directories
+codegen/
+slprj/
+
+# ------------------------------------------------------------------------------
+# 2. Large Datasets & Archives (CRITICAL: Prevents exceeding GitHub 100MB file limit)
+# ------------------------------------------------------------------------------
+# Google Speech Commands raw archives and extracted dataset (>2.4 GB)
+data/raw/speech_commands_v0.02/
+data/raw/speech_commands_test_set_v0.02/
+data/raw/*.tar.gz
+data/raw/*.tar
+data/raw/*.zip
+data/raw/*.7z
+data/raw/*.gz
+
+# Exclude uncommitted raw audio (manifests keep track of dataset metadata)
+data/raw/**/*.wav
+data/raw/**/*.WAV
+
+# Generated audio and bulky experiment binary dumps
+data/processed/*.wav
+data/processed/*.mat
+
+# Preserve small template fixtures and manifests
+!data/templates/*.mat
+!data/manifests/*.csv
+
+# ------------------------------------------------------------------------------
+# 3. Environment, Secrets, & Sensitive Credentials
+# ------------------------------------------------------------------------------
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.cert
+*.pfx
+*.p12
+id_rsa
+id_ed25519
+*secret*
+*credential*
+*token*
+
+# ------------------------------------------------------------------------------
+# 4. Operating System & Local Artifacts
+# ------------------------------------------------------------------------------
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+
+# ------------------------------------------------------------------------------
+# 5. IDE, Editor, & Scratch Directories
+# ------------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files & agent scratch folders
+tmp/
+temp/
+scratch/
+*.tmp
+.system_generated/
+.gemini/

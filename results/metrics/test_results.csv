@@ -1,0 +1,11 @@
+test,passed,result
+testLagConvention,1,PASS
+testNoiseFreeDetection,1,PASS
+testSNRScaling,1,PASS
+testFFTCorrelation,1,PASS
+testNormalizedCorrelation,1,PASS
+testThresholdCalibration,1,PASS
+testNoiseOnlyPfa,1,PASS
+testMultipleEvents,1,PASS
+testReproducibility,1,PASS
+testBlockBoundary,1,PASS

@@ -1,0 +1,20 @@
+# Set default behavior to automatically normalize line endings
+* text=auto eol=lf
+
+# MATLAB source code
+*.m text diff=matlab
+*.mlx binary
+*.fig binary
+*.mat binary
+
+# Documentation & Data
+*.md text
+*.csv text
+*.json text
+
+# Media assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.wav binary
+

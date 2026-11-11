@@ -1,0 +1,6 @@
+algorithm,Pd,Pfa,meanAbsoluteTimingErrorSamples,meanRuntimeSeconds
+direct,1,0,5.83,0.000701717
+fft,1,0,6.88,0.000362072
+matched-filter,1,0,5.38,0.000242835
+normalized,1,0.01,7.34,0.000326554
+whitened,1,0,11.97,0.001607263
