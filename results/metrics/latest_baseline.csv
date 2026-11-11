@@ -1,2 +1,2 @@
 experimentId,algorithm,targetSNRdB,score,threshold,detected,estimatedStartSample,groundTruthStartSample,timingErrorSamples,estimatedArrivalTimeSeconds,sampleRateHz,runtimeSeconds
-latest_baseline,normalized-correlation,-5,0.489266690928577,0.0579649816350163,1,1019,1019,0,0.063625,16000,0.0141619
+latest_baseline,normalized-correlation,-5,0.489266690928577,0.0579649816350163,1,1019,1019,0,0.063625,16000,0.0128876

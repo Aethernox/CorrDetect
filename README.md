@@ -257,8 +257,11 @@ To run an automated controlled injection on speech commands audio with empirical
 root = pwd;
 speechDir = fullfile(root, 'data', 'raw', 'speech_commands_v0.02');
 
-refFile = fullfile(speechDir, 'yes', '0165e0e8_nohash_0.wav');
-bgFile  = fullfile(speechDir, 'no', '0165e0e8_nohash_0.wav');
+% Automatically pick the first available audio recording from each word folder
+yesFiles = dir(fullfile(speechDir, 'yes', '*.wav'));
+noFiles  = dir(fullfile(speechDir, 'no', '*.wav'));
+refFile  = fullfile(yesFiles(1).folder, yesFiles(1).name);
+bgFile   = fullfile(noFiles(1).folder,  noFiles(1).name);
 
 % Runs injection at -5 dB SNR with empirical calibration
 result = runBaselineExperiment(refFile, bgFile, -5, 1729);
@@ -273,11 +276,17 @@ fprintf('Achieved Timing Error: %+d samples\n', result.timingErrorSamples);
 
 ### 1. Template Extraction & Controlled Injection
 ```matlab
+% Automatically pick files from dataset or specify a specific WAV path
+yesFiles = dir('data/raw/speech_commands_v0.02/yes/*.wav');
+noFiles  = dir('data/raw/speech_commands_v0.02/no/*.wav');
+
 % Load reference and isolate the target word template
-[refAudio, Fs] = loadSignal('data/raw/speech_commands_v0.02/yes/0165e0e8_nohash_0.wav');
+[refAudio, Fs] = loadSignal(fullfile(yesFiles(1).folder, yesFiles(1).name));
 [template, tMeta] = buildTemplate(refAudio, Fs, round(0.15*numel(refAudio)), round(0.85*numel(refAudio)));
 
 % Load background receiver audio
+[bgAudio, Fs] = loadSignal(fullfile(noFiles(1).folder, noFiles(1).name), Fs);
+bgPreprocessed = preprocessSignal(bgAudio, Fs, struct('removeMean', true));
 [bgAudio, Fs] = loadSignal('data/raw/speech_commands_v0.02/no/0165e0e8_nohash_0.wav', Fs);
 bgPreprocessed = preprocessSignal(bgAudio, Fs, struct('removeMean', true));
 
